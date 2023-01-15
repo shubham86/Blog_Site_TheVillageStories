@@ -1,0 +1,349 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.Master.cs" Inherits="villageStories.Master" %>
+
+<!DOCTYPE html>
+
+<html lang = "en">
+<head runat="server">
+    <title></title>
+    <!-- Meta Tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="खास ग्रामीण शैलीतील कथांची मेजवानी..!!" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />    
+    <meta property="og:site_name" content="The Village Stories" />
+    <meta property="og:type" content="Website" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/logo.png" type="image/png" />
+    <link rel="icon" href="images/logo.png" type="image/png" />
+
+    <!-- Stylesheets -->
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700+Open+Sans:400,700" />
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link type="text/css" rel="stylesheet" href="css/reset.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
+    <link type="text/css" rel="stylesheet" href="css/animate.css" />
+    <link type="text/css" rel="stylesheet" href="css/main-stylesheet.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/ot-lightbox.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/shortcodes.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/responsive.min.css" />
+    <!-- Demo Only -->
+    <link type="text/css" rel="stylesheet" href="css/_ot-demo.min.css" />
+
+    <style>
+        p.error {
+            color: #cc5965;
+            display:none;
+            margin-left: 5px;
+            font-weight: normal;
+            margin-top: 10px;
+            font-size: 12px;
+            margin-bottom:10px;
+            position:absolute;
+            top: 3px;
+            left: 10px;
+            background-color:#f2f2f2;
+            width:65%;
+            font-weight:bold;
+        }
+        p.success {
+            color: #1b6900;
+            display:none;
+            margin-left: 5px;
+            font-weight: normal;
+            margin-top: 10px;
+            font-size: 12px;
+            margin-bottom:10px;
+            position:absolute;
+            top: 3px;
+            left: 10px;
+            background-color:#f2f2f2;
+            width:65%;
+            font-weight:bold;
+        }
+        p.warning {
+            color: #ae7000;
+            display:none;
+            margin-left: 5px;
+            font-weight: normal;
+            margin-top: 10px;
+            font-size: 12px;
+            margin-bottom:10px;
+            position:absolute;
+            top: 3px;
+            left: 10px;
+            background-color:#f2f2f2;
+            width:65%;
+            font-weight:bold;
+        }
+        #txtEmail {
+            position:relative;
+        }
+        
+        #main-menu > .search-box button {
+    display: block;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    border: 0;
+    border-radius: 2px;
+    background-color: transparent;
+    color: #fff;
+    line-height: 48px;
+    padding: 0 12px;
+    z-index: 2;
+    cursor: pointer;
+    transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+}
+    </style>
+
+    <script type="text/javascript">
+        function searchClick() {
+            if (document.getElementById("txtSearch").value != "") { 
+                window.location = 'search_results.aspx?search=' + document.getElementById("txtSearch").value;
+            }
+        }
+        function searchClick1() {
+            if (document.getElementById("txtSearch1").value != "") { 
+                window.location = 'search_results.aspx?search=' + document.getElementById("txtSearch1").value;
+            }
+        }
+
+        function validateEmail() {
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (document.getElementById('<%=txtEmail.ClientID%>').value == "") {
+                document.getElementById("lblEmail").style.display = "block";                
+                document.getElementById('<%=txtEmail.ClientID%>').focus();
+                return false;
+            }
+            if (reg.test(document.getElementById('<%=txtEmail.ClientID%>').value) == false) {
+                document.getElementById("lblEmail1").style.display = "block";
+                document.getElementById('<%=txtEmail.ClientID%>').focus();
+                return false;
+            }
+        }
+
+        function hidelblEmail() {
+            document.getElementById("lblEmail").style.display = "none";
+            document.getElementById("lblEmail1").style.display = "none";
+            document.getElementById("lblEmail2").style.display = "none";
+            document.getElementById("lblEmail3").style.display = "none";
+            document.getElementById("lblEmail4").style.display = "none";
+        }
+        
+        function scrollToComment() {
+            document.getElementById('<%=txtEmail.ClientID%>').scrollIntoView();
+            document.getElementById("lblEmail2").style.display = "block";
+        }
+
+        function scrollToComment1() {
+            document.getElementById('<%=txtEmail.ClientID%>').scrollIntoView();
+            document.getElementById("lblEmail3").style.display = "block";
+        }
+        
+        function scrollToComment2() {
+            document.getElementById('<%=txtEmail.ClientID%>').scrollIntoView();
+            document.getElementById("lblEmail4").style.display = "block";
+        }
+    </script>
+                                 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="ot-menu-will-follow">
+        <div class="boxed">
+            <!-- BEGIN .header -->
+            <div class="header">
+
+                <!-- BEGIN .wrapper -->
+                <div class="wrapper">
+                    <div class="header-content">
+
+                        <div class="header-content-logo">
+                            <a href="index.aspx">
+                                <%-- <img src="images/logo.png" data-ot-retina="images/logo.png" alt="" />--%>
+                                <span style="font-size: 24px; font-weight: bold; text-transform: uppercase; color: #94be30"><span style="color: #4b4b4b">The</span> Village Stories</span>
+                            </a>
+                        </div>
+
+                        <div class="header-content-o">
+                            <div runat="server" id="advHcontainer" class="adv-container" visible="false">
+                                <a id="aHorizontalAdv" runat="server" href="#" target="_blank">
+                                    <span class="adv-notch">Ad</span>
+                                    <img id="imgHorizontalAdv" runat="server" />
+                                </a>                                
+                            </div>
+                            <ins class="adsbygoogle" style="display: inline-block; width: 728px; height: 90px" data-ad-client="ca-pub-1115754064545893" data-ad-slot="4470122690"></ins>
+                                
+                        </div>
+
+                    </div>
+
+                    <div class="main-menu-placeholder wrapper">
+                        <nav id="main-menu">
+                            <ul>
+                                <li><a href="index.aspx">होम</a></li>
+                                <li><a href="blogs.aspx?category=चालू घडामोडी">चालू घडामोडी</a></li>
+                                <li><a href="blogs.aspx?category=कृषीविषयक">कृषीविषयक</a></li>
+                                <li><a href="blogs.aspx?category=संपादकीय">संपादकीय</a></li>
+                                <li><a href="blogs.aspx? =मनोगत">मनोगत</a></li>
+                                <li><a href="blogs.aspx?category=माहितीपट">माहितीपट</a></li>
+                                <li><a href="javascript:void(0);"><span>कथा</span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blogs.aspx?category=लोककथा">लोककथा</a></li>
+                                        <li><a href="blogs.aspx?category=भयकथा">भयकथा</a></li>
+                                        <li><a href="blogs.aspx?category=हास्यकथा">हास्यकथा</a></li>
+                                        <li><a href="blogs.aspx?category=शौर्यकथा">शौर्यकथा</a></li>
+                                        <li><a href="blogs.aspx?category=साहसकथा">साहसकथा</a></li>
+                                        <li><a href="blogs.aspx?category=रहस्यकथा">रहस्यकथा</a></li>
+                                        <li><a href="blogs.aspx?category=ललीतकथा">ललीतकथा</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0);"><span>पद्य</span></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blogs.aspx?category=चारोळी">चारोळी</a></li>
+                                        <li><a href="blogs.aspx?category=कविता">कविता</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about.aspx">About Us</a></li>
+                                <li><a href="about.aspx?#contact">Contact Us</a></li>
+                            </ul>
+                            <div class="search-box" onclick='searchClick()'>
+                                <input id="txtSearch" type="text" value="" placeholder="Search" autocomplete="off" />
+                                <button id="btnSearch"><i class="fa fa-search"></i></button>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <!-- END .wrapper -->
+                </div>
+
+                <!-- END .header -->
+            </div>
+            
+    <form id="form1" runat="server" autocomplete="off">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- BEGIN #footer -->
+            <footer id="footer">
+
+                <!-- BEGIN .wrapper -->
+                <div class="wrapper">
+                    <div class="footer-copyright">
+                        <div class="col-lg-3 col-md-3 col-sm-12"></div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="widget newsletter ">
+                                <div class="search-form">
+                                    <table width="100%">
+                                        <tr>
+                                            <td>
+                                                <label style="width: 100%">
+                                                    <span class="screen-reader-text">Search for:</span>
+                                                    <input id="txtEmail" type="search" runat="server" class="search-field" placeholder="Email Id" onclick="hidelblEmail()" onkeypress="hidelblEmail()" title="Search for:" />
+                                                </label>
+                                            </td>
+                                            <td width="20%">
+                                                <asp:Button ID="btnSave" runat="server" Text="Subscribe" class="search-submit screen-reader-text" Width="100%" Style="padding: 0 5px" OnClientClick="return validateEmail()" OnClick="btnSave_Click" />
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p class="error" id="lblEmail" onclick="hidelblEmail()">Enter your email id.</p>
+                                                <p class="error" id="lblEmail1" onclick="hidelblEmail()">Enter your vailid email id.</p>
+                                                <p class="success" id="lblEmail2" onclick="hidelblEmail()">Thank you. We will notify you.</p>
+                                                <p class="error" id="lblEmail3" onclick="hidelblEmail()">Error! Please try again..</p>
+                                                <p class="warning" id="lblEmail4" onclick="hidelblEmail()">You are already registered.</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12"></div>
+                    </div>
+                    <div class="footer-copyright">
+                        <div class="col-12" style="padding-bottom: 20px">
+                            <div class="col-lg-6 col-sm-12">&copy; <b style="color: #94be30">The Village Stories</b> 2020. All rights reserved.</div>
+                            <div class="col-lg-6 col-sm-12">Design & Developed by <a href="http:\\jericotechnologies.in" target="_blank" style="color: #0094ff; font-weight: bold">Jerico Technologies</a></div>
+                        </div>
+                    </div>
+                    <!-- END .wrapper -->
+                </div>
+
+                <!-- END #footer -->
+            </footer>
+        </form>
+            <div class="ot-follow-share">
+                <a href="https://www.facebook.com/TheVillageStories/" target="_blank" class="ot-color-facebook" data-h-title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" target="_blank" class="ot-color-instagram" data-h-title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="https://twitter.com/TheVillageStor3?s=09" target="_blank" class="ot-color-twitter" data-h-title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" target="_blank" class="ot-color-google-plus" data-h-title="Google+"><i class="fa fa-google-plus"></i></a>
+                <a href="https://www.youtube.com/channel/UCtBf2EG_VKSS3VDdpIoW4Rg" target="_blank" class="ot-color-youtube" data-h-title="Youtube"><i class="fa fa-youtube-play"></i></a>
+            </div>
+
+
+            <div class="ot-responsive-menu-header">
+                <a href="#" class="ot-responsive-menu-header-burger"><i class="material-icons">menu</i></a>
+                <a href="index.aspx" class="ot-responsive-menu-header-logo">
+                    <%--<img src="images/logo.png" alt="" />--%>
+                    <span style="font-size: 20px; font-weight: bold; text-transform: uppercase; color: #94be30"><span style="color: #4b4b4b">The</span> Village Stories</span>
+                </a>
+            </div>
+
+            <!-- END .boxed -->
+        </div>
+        <div class="ot-responsive-menu-content-c-header">
+            <a href="#" class="ot-responsive-menu-header-burger"><i class="material-icons">menu</i></a>
+        </div>
+        <div class="ot-responsive-menu-content">
+            <div class="ot-responsive-menu-content-inner">
+                <div class="search-box">
+                    <input id="txtSearch1" type="text" value="" placeholder="Search" />
+                    <button type="button" onclick="searchClick1()"><i class="fa fa-search"></i></button>
+                </div>
+                <ul id="responsive-menu-holder"></ul>
+            </div>
+        </div>
+        <div class="ot-responsive-menu-background"></div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="jscript/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="jscript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="jscript/theia-sticky-sidebar.min.js"></script>
+    <script type="text/javascript" src="jscript/modernizr.js"></script>
+    <script type="text/javascript" src="jscript/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="jscript/shortcode-scripts.min.js"></script>
+    <script type="text/javascript" src="jscript/theme-scripts.min.js"></script>
+    <script type="text/javascript" src="jscript/ot-lightbox.min.js"></script>
+    <script>
+        jQuery('.main-slider-owl').owlCarousel({
+            margin: 20,
+            responsiveClass: true,
+            nav: true,
+            dots: false,
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                }
+            }
+        });
+    </script>
+</body>
+</html>
